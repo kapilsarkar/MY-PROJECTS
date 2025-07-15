@@ -9,3 +9,5 @@ export let Shoes = 'https://res.cloudinary.com/dxguqzge7/image/upload/v168283891
 export let Books = 'https://res.cloudinary.com/dxguqzge7/image/upload/v1682838761/Book_lc6ikb.jpg';
 export let EmptyCart = 'https://res.cloudinary.com/dxguqzge7/image/upload/v1682838909/Cart_bk4xgl.jpg';
 export let customerReview = "https://res.cloudinary.com/dxguqzge7/image/upload/v1682838911/Review_bm6chw.jpg";
+
+export const  ShoesWomen = "https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/665715a386f71d0024e3f9d7/women-shoes-black-1.jpg";

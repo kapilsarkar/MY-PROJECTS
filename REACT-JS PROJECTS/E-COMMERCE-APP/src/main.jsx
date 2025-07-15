@@ -12,12 +12,16 @@ import Layout from "./components/Layout.jsx";
 import Error from "./components/Error.jsx";
 import Body from "./components/Body.jsx";
 import Cart from "./components/Cart.jsx";
+import Men from "./components/Men.jsx";
+import Women from "./components/Women.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<Error />}>
       <Route index element={<Body />} />
       <Route path="cart" element={<Cart />} />
+      <Route path="men" element={<Men />} />
+      <Route path="women" element={<Women />} />
     </Route>
   )
 );
