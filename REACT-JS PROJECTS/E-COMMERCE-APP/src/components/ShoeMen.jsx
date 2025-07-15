@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { MENS_CLOTHING } from "../utils/constant";
+import { MENSHOES } from "../utils/constant";
 import { FcRating } from "react-icons/fc";
-const Men = () => {
+
+const ShoeMen = () => {
   const [showMen, setShowMen] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -10,26 +11,25 @@ const Men = () => {
 
   const fetchData = async () => {
     try {
-      const data = await fetch(MENS_CLOTHING);
+      const data = await fetch(MENSHOES);
       const json = await data.json();
-      //console.log(json);
-      setShowMen(json);
+      //console.log(json.products);
+      setShowMen(json.products);
     } catch (err) {
-      console.error("Failed to fetch men's Cloth:", err);
+      console.error("Failed to fetch men's shoe's:", err);
     } finally {
       setLoading(false);
     }
   };
 
   const handleTopRated = () => {
-    const topRated = showMen.filter((men) => men.rating.rate >= 4.1);
+    const topRated = showMen.filter((men) => men.rating >= 4.1);
     topRated.length <= 1 ? fetchData() : setShowMen(topRated);
   };
-
   return (
     <div className="w-full  mt-10 dark:bg-gray-900 dark:text-white text-black bg-white p-2">
       <h2 className=" text-center bg-red-500 text-white text-2xl shadow-lg mt-5 p-3 font-bold">
-        Men's
+        Men's Shoe's
       </h2>
       <div className=" flex mt-2 p-3 flex-wrap gap-3 justify-center">
         <button
@@ -57,7 +57,7 @@ const Men = () => {
               >
                 <div className="p-3 mt-10 shadow-2xl">
                   <img
-                    src={m?.image}
+                    src={m?.thumbnail}
                     alt={m?.title}
                     className="w-full h-64  object-cover rounded"
                   />
@@ -69,7 +69,7 @@ const Men = () => {
                   </p>
                   <div className=" flex p-1">
                     <FcRating className=" mt-1" />
-                    <p className=" font-bold ml-1">{m.rating.rate}</p>
+                    <p className=" font-bold ml-1">{m?.rating}</p>
                   </div>
                   <p className=" mt-2 font-bold">₹ {m.price}</p>
                   <button className="mt-2 py-2 px-2 bg-red-500 text-white font-semibold rounded-md">
@@ -85,4 +85,4 @@ const Men = () => {
   );
 };
 
-export default Men;
+export default ShoeMen;

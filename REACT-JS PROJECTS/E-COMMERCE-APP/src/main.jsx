@@ -14,7 +14,9 @@ import Body from "./components/Body.jsx";
 import Cart from "./components/Cart.jsx";
 import Men from "./components/Men.jsx";
 import Women from "./components/Women.jsx";
-
+import ShoeMen from "./components/ShoeMen.jsx";
+import ShoeWomen from "./components/ShoeWomen.jsx";
+import Jewel from "./components/Jewel.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<Error />}>
@@ -22,6 +24,9 @@ const router = createBrowserRouter(
       <Route path="cart" element={<Cart />} />
       <Route path="men" element={<Men />} />
       <Route path="women" element={<Women />} />
+      <Route path="shoeMen" element={<ShoeMen/>}/>
+      <Route path="shoeWoMen" element={<ShoeWomen/>}/>
+      <Route path="jewel" element={<Jewel/>}/>
     </Route>
   )
 );

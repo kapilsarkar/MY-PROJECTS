@@ -30,11 +30,10 @@ const ShoppingMenu = () => {
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <Link to="/women">
-             <h3 className="text-white text-3xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded animate-zoomIn">
-              WOMEN'S
-            </h3>
+              <h3 className="text-white text-3xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded animate-zoomIn">
+                WOMEN'S
+              </h3>
             </Link>
-           
           </div>
         </div>
       </div>
@@ -46,9 +45,11 @@ const ShoppingMenu = () => {
             alt="Men's Clothing"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <h3 className="text-white text-3xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded animate-zoomIn">
-              MEN'S
-            </h3>
+            <Link to="/shoeMen">
+              <h3 className="text-white text-3xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded animate-zoomIn">
+                MEN'S
+              </h3>
+            </Link>
           </div>
         </div>
         <div className="relative w-[36rem]  p-2">
@@ -58,9 +59,11 @@ const ShoppingMenu = () => {
             alt="Men's Clothing"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <h3 className="text-white text-3xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded animate-zoomIn">
-              WOMEN'S
-            </h3>
+            <Link to="/shoeWoMen">
+              <h3 className="text-white text-3xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded animate-zoomIn">
+                WOMEN'S
+              </h3>
+            </Link>
           </div>
         </div>
       </div>
@@ -73,9 +76,11 @@ const ShoppingMenu = () => {
               alt="Men's Clothing"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <h3 className="text-white text-3xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded animate-zoomIn">
-                JEWELRY
-              </h3>
+              <Link to="/jewel">
+                <h3 className="text-white text-3xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded animate-zoomIn">
+                  JEWELRY
+                </h3>
+              </Link>
             </div>
           </div>
         </div>

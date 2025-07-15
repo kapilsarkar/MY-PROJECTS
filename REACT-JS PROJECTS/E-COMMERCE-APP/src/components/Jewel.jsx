@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { MENS_CLOTHING } from "../utils/constant";
+import { JEWELRY } from "../utils/constant";
 import { FcRating } from "react-icons/fc";
-const Men = () => {
-  const [showMen, setShowMen] = useState([]);
+
+const Jewel = () => {
+  const [showJewel, setShowJewel] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetchData();
@@ -10,26 +11,25 @@ const Men = () => {
 
   const fetchData = async () => {
     try {
-      const data = await fetch(MENS_CLOTHING);
+      const data = await fetch(JEWELRY);
       const json = await data.json();
       //console.log(json);
-      setShowMen(json);
+      setShowJewel(json);
     } catch (err) {
-      console.error("Failed to fetch men's Cloth:", err);
+      console.error("Failed to fetch Jewelry:", err);
     } finally {
       setLoading(false);
     }
   };
 
   const handleTopRated = () => {
-    const topRated = showMen.filter((men) => men.rating.rate >= 4.1);
-    topRated.length <= 1 ? fetchData() : setShowMen(topRated);
+    const topRated = showJewel.filter((men) => men.rating.rate >= 3.9);
+    topRated.length <= 1 ? fetchData() : setShowJewel(topRated);
   };
-
   return (
     <div className="w-full  mt-10 dark:bg-gray-900 dark:text-white text-black bg-white p-2">
       <h2 className=" text-center bg-red-500 text-white text-2xl shadow-lg mt-5 p-3 font-bold">
-        Men's
+        Jewelry
       </h2>
       <div className=" flex mt-2 p-3 flex-wrap gap-3 justify-center">
         <button
@@ -49,7 +49,7 @@ const Men = () => {
         {loading ? (
           <p className="text-center">Loading...</p>
         ) : (
-          showMen.map((m) => {
+          showJewel.map((m) => {
             return (
               <div
                 key={m?.id}
@@ -85,4 +85,4 @@ const Men = () => {
   );
 };
 
-export default Men;
+export default Jewel;
