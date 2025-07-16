@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
 import { MENS_CLOTHING } from "../utils/constant";
 import { FcRating } from "react-icons/fc";
+import { useDispatch } from "react-redux";
+import { addItems } from "../utils/cartSlice";
+
 const Men = () => {
   const [showMen, setShowMen] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  const dispatch = useDispatch();
+  
+  const handleAddToCart = ()=>{
+    dispatch(addItems(showMen))
+  } 
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -72,7 +82,7 @@ const Men = () => {
                     <p className=" font-bold ml-1">{m.rating.rate}</p>
                   </div>
                   <p className=" mt-2 font-bold">₹ {m.price}</p>
-                  <button className="mt-2 py-2 px-2 bg-red-500 text-white font-semibold rounded-md">
+                  <button onClick={handleAddToCart} className="mt-2 py-2 px-2 bg-red-500 text-white font-semibold rounded-md">
                     Add To cart
                   </button>
                 </div>

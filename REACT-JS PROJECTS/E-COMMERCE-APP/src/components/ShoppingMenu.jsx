@@ -8,7 +8,7 @@ const ShoppingMenu = () => {
   return (
     <div className="w-full  mt-10 dark:bg-gray-900 dark:text-white text-black bg-white p-2">
       <div className=" mt-5 p-2 flex flex-wrap justify-center">
-        <div className="relative w-[36rem] p-2">
+        <div className="relative w-[46rem] sm:w-[42rem] p-2">
           <img
             className="w-full shadow-2xl rounded-2xl"
             src={MaleCloth}
@@ -22,7 +22,7 @@ const ShoppingMenu = () => {
             </Link>
           </div>
         </div>
-        <div className="relative w-[36rem] p-2">
+        <div className="relative w-[46rem] sm:w-[42rem] p-2">
           <img
             className="w-full shadow-2xl rounded-2xl"
             src={FemaleCloth}
@@ -38,7 +38,7 @@ const ShoppingMenu = () => {
         </div>
       </div>
       <div className=" mt-2 p-2 flex flex-wrap justify-center">
-        <div className="relative w-[36rem] p-2">
+        <div className="relative w-[46rem] sm:w-[42rem] p-2">
           <img
             className="w-full shadow-2xl h-[20rem] rounded-2xl"
             src={Shoes}
@@ -52,7 +52,7 @@ const ShoppingMenu = () => {
             </Link>
           </div>
         </div>
-        <div className="relative w-[36rem]  p-2">
+        <div className="relative w-[46rem] sm:w-[42rem]  p-2">
           <img
             className="w-full shadow-2xl h-[20rem] rounded-2xl"
             src={ShoesWomen}
@@ -69,7 +69,7 @@ const ShoppingMenu = () => {
       </div>
       <div className="w-full -mt-5">
         <div className="mt-1 p-2 flex flex-wrap justify-center">
-          <div className="relative w-[42rem] p-2">
+          <div className="relative w-[46rem] sm:w-[42rem] p-2">
             <img
               className="w-full shadow-2xl  rounded-2xl"
               src={Jewelry}
