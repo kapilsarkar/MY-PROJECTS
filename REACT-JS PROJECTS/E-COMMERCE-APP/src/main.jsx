@@ -17,6 +17,8 @@ import Women from "./components/Women.jsx";
 import ShoeMen from "./components/ShoeMen.jsx";
 import ShoeWomen from "./components/ShoeWomen.jsx";
 import Jewel from "./components/Jewel.jsx";
+import { ToastContainer } from "react-toastify";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<Error />}>
@@ -24,15 +26,18 @@ const router = createBrowserRouter(
       <Route path="cart" element={<Cart />} />
       <Route path="men" element={<Men />} />
       <Route path="women" element={<Women />} />
-      <Route path="shoeMen" element={<ShoeMen/>}/>
-      <Route path="shoeWoMen" element={<ShoeWomen/>}/>
-      <Route path="jewel" element={<Jewel/>}/>
+      <Route path="shoeMen" element={<ShoeMen />} />
+      <Route path="shoeWoMen" element={<ShoeWomen />} />
+      <Route path="jewel" element={<Jewel />} />
     </Route>
   )
 );
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <RouterProvider router={router} />
+    <>
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </>
   </Provider>
 );
