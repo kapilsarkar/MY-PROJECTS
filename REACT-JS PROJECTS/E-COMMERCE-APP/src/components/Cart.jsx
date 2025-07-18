@@ -24,7 +24,7 @@ const Cart = () => {
     toast.success("Purchase successful! Thank you for shopping ❤️");
   };
   return (
-    <div className="w-full mt-20 flex flex-wrap justify-center items-center">
+    <div className="w-full mt-16 flex flex-wrap justify-center items-center">
       <div className="grid gap-2 p-3">
         {cartItems.length === 0 ? (
           <p className="text-gray-500 font-bold text-2xl">Your 🛒 cart is empty</p>

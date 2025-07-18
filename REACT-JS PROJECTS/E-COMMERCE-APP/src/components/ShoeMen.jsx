@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { MENSHOES } from "../utils/constant";
 import { FcRating } from "react-icons/fc";
+import { addItems } from "../utils/cartSlice";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
 
 const ShoeMen = () => {
   const [showMen, setShowMen] = useState([]);
@@ -25,6 +28,20 @@ const ShoeMen = () => {
   const handleTopRated = () => {
     const topRated = showMen.filter((men) => men.rating >= 4.1);
     topRated.length <= 1 ? fetchData() : setShowMen(topRated);
+  };
+
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+  const handleAddToCart = (item) => {
+    const isItemAlreadyInCart = cartItems.find(
+      (cartItem) => cartItem.id === item.id
+    );
+    if (isItemAlreadyInCart) {
+      toast.warning("Item already in cart!");
+    } else {
+      dispatch(addItems(item));
+      toast.success("Item added to cart!");
+    }
   };
   return (
     <div className="w-full  mt-10 dark:bg-gray-900 dark:text-white text-black bg-white p-2">
@@ -72,7 +89,10 @@ const ShoeMen = () => {
                     <p className=" font-bold ml-1">{m?.rating}</p>
                   </div>
                   <p className=" mt-2 font-bold">₹ {m.price}</p>
-                  <button className="mt-2 py-2 px-2 bg-red-500 text-white font-semibold rounded-md">
+                  <button
+                    onClick={() => handleAddToCart(m)}
+                    className="mt-2 py-2 px-2 bg-red-500 text-white font-semibold rounded-md"
+                  >
                     Add To cart
                   </button>
                 </div>
