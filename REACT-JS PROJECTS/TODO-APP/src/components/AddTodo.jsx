@@ -5,10 +5,8 @@ import { toast } from "react-toastify";
 const AddTodo = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
- 
-  const todos = useSelector((state)=>state.todos);
 
-  
+  const todos = useSelector((state) => state.todos);
 
   const handleAddTodo = (e) => {
     e.preventDefault();
@@ -18,14 +16,22 @@ const AddTodo = () => {
       //More concise and handles empty string/falsy values.
       toast.error("Please Enter a Task");
       return; //Avoids nesting code inside else, improves readability.
-    } else {
-      dispatch(addTodo(input));
-      setInput("");
     }
+    const isDuplicate = todos.some(
+      (todo) => todo.text.toLowerCase() === trimmedInput.toLowerCase()
+    );
+
+    if (isDuplicate) {
+      toast.warning("Tasks Already Exists");
+       return; // Prevent adding duplicate
+    }
+
+    dispatch(addTodo(trimmedInput));
+    setInput("");
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-10 rounded-2xl shadow-lg bg-white dark:bg-gray-800 transition-colors duration-300">
+    <div className="max-w-xl mx-auto mt-10 rounded-2xl shadow-2xl bg-white dark:bg-gray-800 transition-colors duration-300">
       <h2 className="text-2xl font-semibold text-center bg-violet-600 text-white py-4 rounded-t-2xl">
         TODO APP
       </h2>

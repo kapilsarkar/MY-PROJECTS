@@ -8,7 +8,7 @@ const ViewTodo = () => {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   return (
-    <div className="max-w-xl mx-auto mt-6 px-4">
+    <div className="max-w-xl shadow-2xl mb-2 mx-auto mt-6 px-4">
       <h3 className="text-xl font-bold text-center mb-4 text-gray-800 dark:text-white">
         Your Todos
       </h3>
