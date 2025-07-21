@@ -1,13 +1,27 @@
 import { useState } from "react";
 import { addTodo } from "../utils/todoSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 const AddTodo = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
+ 
+  const todos = useSelector((state)=>state.todos);
+
+  
+
   const handleAddTodo = (e) => {
     e.preventDefault();
-    dispatch(addTodo(input));
-    setInput("");
+    const trimmedInput = input.trim(); //Prevents tasks that are just spaces.
+
+    if (!trimmedInput) {
+      //More concise and handles empty string/falsy values.
+      toast.error("Please Enter a Task");
+      return; //Avoids nesting code inside else, improves readability.
+    } else {
+      dispatch(addTodo(input));
+      setInput("");
+    }
   };
 
   return (
