@@ -1,10 +1,35 @@
+import { useState } from "react";
+import { addTodo } from "../utils/todoSlice";
+import { useDispatch } from "react-redux";
 const AddTodo = () => {
+  const [input, setInput] = useState("");
+  const dispatch = useDispatch();
+  const handleAddTodo = (e) => {
+    e.preventDefault();
+    dispatch(addTodo(input));
+    setInput("");
+  };
+
   return (
-    <div className=" bg-slate-300">
-      <h2 className=" bg-violet-500 text-white p-2">TODO-APP</h2>
-      <form className="space-x-3 flex flex-wrap p-3 m-1">
-        <input  className="bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-ou" type="text" />
-        <button className=" bg-purple-700 text-white px-3 py-2 rounded-full m-1">
+    <div className="max-w-xl mx-auto mt-10 rounded-2xl shadow-lg bg-white dark:bg-gray-800 transition-colors duration-300">
+      <h2 className="text-2xl font-semibold text-center bg-violet-600 text-white py-4 rounded-t-2xl">
+        TODO APP
+      </h2>
+      <form
+        onSubmit={handleAddTodo}
+        className="flex flex-col sm:flex-row items-center justify-center gap-4 p-6"
+      >
+        <input
+          className="w-full sm:w-auto flex-grow bg-gray-100 dark:bg-gray-700 dark:text-white placeholder-gray-500 rounded-lg border border-gray-300 dark:border-gray-600 focus:border-violet-500 focus:ring-2 focus:ring-violet-400 outline-none px-4 py-2 transition-all duration-200"
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Add a new task..."
+        />
+        <button
+          className="bg-violet-600 hover:bg-violet-700 text-white font-medium px-6 py-2 rounded-full transition duration-200 shadow-md"
+          type="submit"
+        >
           +
         </button>
       </form>
