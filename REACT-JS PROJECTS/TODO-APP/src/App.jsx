@@ -1,7 +1,7 @@
 import { FiClipboard } from "react-icons/fi";
 import AddTodo from "./components/AddTodo";
 import ViewTodo from "./components/ViewTodo";
-
+import Footer from "./components/Footer";
 function App() {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -16,16 +16,17 @@ function App() {
       {/* Main Content */}
       <main className="py-10 px-4">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-6 justify-center items-start">
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6">
             <AddTodo />
           </div>
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6">
             <ViewTodo />
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
 
-export default App
+export default App;
