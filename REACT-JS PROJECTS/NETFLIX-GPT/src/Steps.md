@@ -4,6 +4,12 @@
 
 1. Configured Tailwind.
 
+1. Header
+
+1. Login Form 
+
+1. Sign Up form
+
 ### Features :
 
 - Login/SignUp Page.
