@@ -1,11 +1,30 @@
 import Header from "./Header";
 import bgImg from "../images/netFlixBg.jpg";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { checkValidateData } from "../utils/validate";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const name = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
+  const mobile = useRef(null);
+
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
+  };
+
+  const handleButtonClick = () => {
+    //Validate the Form data
+    const message = checkValidateData(
+      email.current.value,
+      password.current.value,
+      name.current.value,
+      mobile.current.value
+    );
+    setErrorMessage(message);
   };
 
   return (
@@ -23,23 +42,47 @@ const Login = () => {
 
       {/* Form Container */}
       <div className="absolute inset-0 flex justify-center items-center">
-        <form className="w-11/12 sm:w-2/3 md:w-1/3 lg:w-1/4 p-8 sm:p-10 text-white bg-black bg-opacity-80 rounded-lg">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="w-11/12 sm:w-2/3 md:w-1/3 lg:w-1/4 p-8 sm:p-10 text-white bg-black bg-opacity-80 rounded-lg"
+        >
           <h1 className="font-bold text-2xl sm:text-3xl mb-6">
             {isSignInForm ? "Sign In" : "Sign Up"}
           </h1>
-
+          {!isSignInForm && (
+            <input
+              ref={name}
+              type="text"
+              placeholder="Full Name"
+              className="p-3 my-3 w-full bg-gray-700 rounded-sm"
+            />
+          )}
+          {!isSignInForm && (
+            <input
+              ref={mobile}
+              type="number"
+              placeholder="Mobile Number"
+              className="p-3 my-3 w-full bg-gray-700 rounded-sm"
+            />
+          )}
           <input
+            ref={email}
             type="email"
             placeholder="Email address"
             className="p-3 my-3 w-full bg-gray-700 rounded-sm"
           />
+
           <input
+            ref={password}
             type="password"
             placeholder="Password"
             className="p-3 my-3 w-full bg-gray-700 rounded-sm"
           />
-
-          <button className="p-3 my-4 bg-red-600 hover:bg-red-700 transition font-semibold w-full rounded-sm">
+          <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
+          <button
+            className="p-3 my-4 bg-red-600 hover:bg-red-700 transition font-semibold w-full rounded-sm"
+            onClick={handleButtonClick}
+          >
             {isSignInForm ? "Sign In" : "Sign Up"}
           </button>
 
@@ -54,7 +97,8 @@ const Login = () => {
           </p>
 
           <p className="py-2 text-gray-400 text-xs">
-            This page is protected by Google reCAPTCHA to ensure you're not a bot.
+            This page is protected by Google reCAPTCHA to ensure you're not a
+            bot.
           </p>
         </form>
       </div>
@@ -62,4 +106,4 @@ const Login = () => {
   );
 };
 
-export default Login
+export default Login;

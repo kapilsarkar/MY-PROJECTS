@@ -10,6 +10,12 @@
 
 1. Sign Up form
 
+1. Routing
+
+1. Form Validation
+
+1. useRef Hook
+
 ### Features :
 
 - Login/SignUp Page.
