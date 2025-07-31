@@ -16,6 +16,10 @@
 
 1. useRef Hook
 
+1. Firebase Setup
+
+1. Deploying our app to production
+
 ### Features :
 
 - Login/SignUp Page.
@@ -37,3 +41,4 @@
 
    
 
+//https://netflix-gpt-8c785.web.app/
