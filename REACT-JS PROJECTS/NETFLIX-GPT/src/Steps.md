@@ -20,6 +20,8 @@
 
 1. Deploying our app to production
 
+1. Create SiggnUp User Account
+
 ### Features :
 
 - Login/SignUp Page.
@@ -41,4 +43,4 @@
 
    
 
-//https://netflix-gpt-8c785.web.app/
+//Password: kapil@123456, Kapil@12345,John@12345,Brock@12345

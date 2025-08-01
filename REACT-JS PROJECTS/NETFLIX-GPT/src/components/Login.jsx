@@ -2,7 +2,11 @@ import Header from "./Header";
 import bgImg from "../images/netFlixBg.jpg";
 import { useRef, useState } from "react";
 import { checkValidateData } from "../utils/validate";
-
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -18,13 +22,41 @@ const Login = () => {
 
   const handleButtonClick = () => {
     //Validate the Form data
+    const emailVal = email.current?.value || "";
+    const passwordVal = password.current?.value || "";
+    const nameVal = name.current?.value || "";
+    const mobileVal = mobile.current?.value || "";
+
     const message = checkValidateData(
-      email.current.value,
-      password.current.value,
-      name.current.value,
-      mobile.current.value
+      emailVal,
+      passwordVal,
+      nameVal,
+      mobileVal
     );
     setErrorMessage(message);
+
+    if (message) return;
+
+    // Sign In / Sign Up Logic
+    if (!isSignInForm) {
+      // Sign Up Logic
+      createUserWithEmailAndPassword(auth, emailVal, passwordVal)
+        .then((userCredential) => {
+          console.log(userCredential.user);
+        })
+        .catch((error) => {
+          setErrorMessage(error.code + " " + error.message);
+        });
+    } else {
+      // Sign In Logic
+      signInWithEmailAndPassword(auth, emailVal, passwordVal)
+        .then((userCredential) => {
+          console.log(userCredential.user);
+        })
+        .catch((error) => {
+          setErrorMessage(error.code + " " + error.message);
+        });
+    }
   };
 
   return (
