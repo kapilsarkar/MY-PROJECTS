@@ -26,6 +26,12 @@
 
 1. Created our Redux store with userSlice
 
+1. Implemented SignOut Feature.
+
+1. Update Profile api call.
+
+1. Fetch from TMDB Movies
+
 ### Features :
 
 - Login/SignUp Page.
@@ -47,4 +53,4 @@
 
    
 
-//Password: kapil@123456, Kapil@12345,John@12345,Brock@12345
+//Password: kapil@123456, Kapil@12345,John@12345,Brock@12345,Seth@12345,Virat@12345,Rahul@12345
