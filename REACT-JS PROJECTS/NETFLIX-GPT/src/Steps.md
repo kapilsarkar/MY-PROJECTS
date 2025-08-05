@@ -32,6 +32,12 @@
 
 1. Fetch from TMDB Movies
 
+1. BugFix:SignUp user displayName nad profile picture update
+
+1. BugFix : If the user is not Logged in Redirect /browse to Login page and vice-versa.
+
+1. Unsubscribed to the the onAuthStateChanged callback.
+
 ### Features :
 
 - Login/SignUp Page.

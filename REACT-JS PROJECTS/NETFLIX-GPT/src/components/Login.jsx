@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Header from "./Header";
 import bgImg from "../images/netFlixBg.jpg";
 import { useRef, useState } from "react";
@@ -8,13 +9,11 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -56,17 +55,17 @@ const Login = () => {
             .then(() => {
               // Profile updated!
               // ...
-              const { uid, email, displayName, mobileNumber, photoURL } = auth.currentUser;
+              const { uid, email, displayName, mobileNumber, photoURL } =
+                auth.currentUser;
               dispatch(
                 addUser({
                   uid: uid,
                   email: email,
                   displayName: displayName,
-                  mobileNumber: mobileNumber,
+                  mobileNumber: mobileVal,
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -74,7 +73,7 @@ const Login = () => {
               setErrorMessage(error.message);
             });
 
-          console.log(userCredential.user);
+          //console.log(userCredential.user);
         })
         .catch((error) => {
           setErrorMessage(error.code + " " + error.message);
@@ -82,10 +81,7 @@ const Login = () => {
     } else {
       // Sign In Logic
       signInWithEmailAndPassword(auth, emailVal, passwordVal)
-        .then((userCredential) => {
-          console.log(userCredential.user);
-          navigate("/browse");
-        })
+        .then((userCredential) => {})
         .catch((error) => {
           setErrorMessage(error.code + " " + error.message);
         });
@@ -143,7 +139,11 @@ const Login = () => {
             placeholder="Password"
             className="p-3 my-3 w-full bg-gray-700 rounded-sm"
           />
-          <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
+          {errorMessage && (
+            <p className="text-red-500 font-bold text-lg py-2">
+              {errorMessage}
+            </p>
+          )}
           <button
             className="p-3 my-4 bg-red-600 hover:bg-red-700 transition font-semibold w-full rounded-sm"
             onClick={handleButtonClick}
