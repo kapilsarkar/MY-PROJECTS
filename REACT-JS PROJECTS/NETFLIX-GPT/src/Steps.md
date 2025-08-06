@@ -38,6 +38,12 @@
 
 1. Unsubscribed to the the onAuthStateChanged callback.
 
+1. Register for TMDB API and create an app & get access token
+
+1. Get Data from TMDB Now Playing movie List API.
+
+
+
 ### Features :
 
 - Login/SignUp Page.
