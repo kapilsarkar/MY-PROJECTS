@@ -42,6 +42,22 @@
 
 1. Get Data from TMDB Now Playing movie List API.
 
+1. Custom Hooks for Now Playing Movies.
+
+1. Create a movieSlice
+
+1. Update the store with Movie Data
+
+1. Planning for Main container and Secondary Container
+
+1. Fetch data for Trailer Video
+
+1. Update the store with Trailer Data.
+
+1. Embedded the Youtube Video and made it auto play and mute.
+
+1.  Tailwind classes to make Main Container look awesome 
+
 
 
 ### Features :
