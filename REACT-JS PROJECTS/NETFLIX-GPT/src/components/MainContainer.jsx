@@ -4,14 +4,18 @@ import VideoBackGround from "./VideoBackGround";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
-  if (!movies) return; //Early return or if the movie is not preset then return null
+  if (!movies) return null; // Early return if no movies
+
   const mainMovie = movies[0];
-  //console.log(mainMovie);
-  const { original_title, overview,id } = mainMovie;
+  const { original_title, overview, id } = mainMovie;
+
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className="w-full h-full overflow-x-hidden relative">
+      {/* Background video */}
+      <VideoBackGround movieId={id} />
+
+      {/* Overlay title */}
       <VideoTitle title={original_title} overview={overview} />
-      <VideoBackGround movieId={id}/>
     </div>
   );
 };

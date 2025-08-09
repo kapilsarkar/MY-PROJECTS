@@ -58,6 +58,8 @@
 
 1.  Tailwind classes to make Main Container look awesome 
 
+1. Build Secondary Component.
+
 
 
 ### Features :
