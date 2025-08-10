@@ -150,6 +150,7 @@ const Login = () => {
           >
             {isSignInForm ? "Sign In" : "Sign Up"}
           </button>
+          <button className="p-3 my-4 bg-red-600 hover:bg-red-700 transition font-semibold w-full rounded-sm">Guest User</button>
 
           <p className="py-2 text-gray-300 text-sm sm:text-base">
             {isSignInForm ? "New to Netflix?" : "Already have an account?"}

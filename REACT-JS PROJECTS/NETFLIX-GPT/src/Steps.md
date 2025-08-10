@@ -60,6 +60,16 @@
 
 1. Build Secondary Component.
 
+1. Build Movie List 
+
+1. Build Movie Card
+
+1. TMDB Image CDN URL
+
+1. Made the Browse Page amazibg with Tailwind CSS.
+
+1. Custom Hook for usePopularMovies.
+
 
 
 ### Features :
