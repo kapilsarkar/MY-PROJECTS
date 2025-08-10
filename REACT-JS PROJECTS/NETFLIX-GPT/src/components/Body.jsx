@@ -2,6 +2,7 @@ import Login from "./Login";
 import Browse from "./Browse";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router";
+import GuestBrowse from "./GuestBrowse";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -12,6 +13,10 @@ const Body = () => {
     {
       path: "/browse",
       element: <Browse />,
+    },
+    {
+      path: "/GuestBrowse",
+      element: <GuestBrowse />,
     },
   ]);
 

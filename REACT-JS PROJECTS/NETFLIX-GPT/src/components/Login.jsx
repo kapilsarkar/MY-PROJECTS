@@ -11,11 +11,16 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+  const handleGuest = () => {
+    navigate("/GuestBrowse");
+  };
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
@@ -150,7 +155,12 @@ const Login = () => {
           >
             {isSignInForm ? "Sign In" : "Sign Up"}
           </button>
-          <button className="p-3 my-4 bg-red-600 hover:bg-red-700 transition font-semibold w-full rounded-sm">Guest User</button>
+          <button
+            className="p-3 my-4 bg-red-600 hover:bg-red-700 transition font-semibold w-full rounded-sm"
+            onClick={handleGuest}
+          >
+            Guest User
+          </button>
 
           <p className="py-2 text-gray-300 text-sm sm:text-base">
             {isSignInForm ? "New to Netflix?" : "Already have an account?"}
