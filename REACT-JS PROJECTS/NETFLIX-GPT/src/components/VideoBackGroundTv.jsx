@@ -18,9 +18,7 @@ const VideoBackGroundTv = ({ tvId }) => {
         className="w-full aspect-video border-none block"
         src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1&loop=1&playlist=${videoKey}&controls=0&modestbranding=1&rel=0&showinfo=0`}
         title="YouTube video player"
-        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
     </div>
