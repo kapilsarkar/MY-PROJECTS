@@ -18,7 +18,7 @@ const GuestMainContainer = () => {
   }
 
   return (
-    <div className="w-full min-h-screen overflow-x-hidden relative">
+    <div className="w-full  overflow-x-hidden relative">
       <VideoBackGroundTv tvId={id} />
       <TvVideoTitle name={original_name} overview={overview} />
     </div>

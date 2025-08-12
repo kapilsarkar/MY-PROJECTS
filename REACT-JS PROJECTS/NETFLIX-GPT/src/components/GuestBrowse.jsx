@@ -44,12 +44,12 @@ const GuestBrowse = () => {
       </header>
 
       {/* Page Content */}
-      <main className="space-y-10  ">
-        <section className="animate-fadeIn">
+      <main className="-mt-2">
+        <section className="animate-fadeIn ">
           <GuestMainContainer />
         </section>
-        <section className="animate-fadeIn">
-         <GuestSecondaryContainer/>
+        <section className="animate-fadeIn ">
+          <GuestSecondaryContainer />
         </section>
       </main>
     </div>
