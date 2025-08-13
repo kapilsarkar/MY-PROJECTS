@@ -4,9 +4,12 @@ import HeaderLogo from "../images/mainLogo.png";
 import netflixAvatar from "../images/netflix-avatar.jpg";
 import GuestMainContainer from "./GuestMainContainer";
 import GuestSecondaryContainer from "./GuestSecondaryContainer";
-
+import useTopRatedTvShows from "../hooks/useTopRatedTvShows";
+import useOnTheAir from "../hooks/useOnTheAir";
 const GuestBrowse = () => {
   usePopularTvShows();
+  useTopRatedTvShows();
+  useOnTheAir();
   const navigate = useNavigate();
 
   const handleLogin = () => {

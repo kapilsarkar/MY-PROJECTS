@@ -8,17 +8,17 @@ const GuestMainContainer = () => {
   if (!tv || tv.length === 0) return null;
 
   const mainTv = tv[0] || {};
-  console.log("Main TV:", mainTv); // Debugging log
+  //console.log("Main TV:", mainTv); // Debugging log
 
   const { original_name = "No Title", overview = "", id } = mainTv;
 
   if (!id) {
-    console.warn("No TV ID found for main TV show");
+    //console.warn("No TV ID found for main TV show");
     return null;
   }
 
   return (
-    <div className="w-full  overflow-x-hidden relative">
+    <div className="w-full   relative">
       <VideoBackGroundTv tvId={id} />
       <TvVideoTitle name={original_name} overview={overview} />
     </div>

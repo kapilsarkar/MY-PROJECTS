@@ -13,21 +13,35 @@ const TvList = ({ title, tv }) => {
   }
 
   return (
-    <div className="relative bg-black py-4">
+    <div className="relative mt-3 bg-black py-4">
       {/* Section title */}
-      <h2 className="px-4 sm:px-6 lg:px-8 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-3 text-white tracking-wide capitalize">
-        {title}
-      </h2>
+      <div className="px-4 sm:px-6 lg:px-8">
+        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-3 text-white tracking-wide capitalize">
+          {title}
+        </h2>
+      </div>
 
       {/* Horizontal scroll container */}
-      <div className="flex overflow-x-auto gap-3 sm:gap-4 px-4 sm:px-6 lg:px-8">
-        {tv.map((item) => (
-          <TvCard
-            key={item.id}
-            posterPath={item.poster_path}
-            className="flex-shrink-0 w-28 sm:w-40 md:w-48 lg:w-56 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
-          />
-        ))}
+      <div className="relative">
+        {/* Gradient fade - left */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-black to-transparent z-10"></div>
+
+        {/* Gradient fade - right */}
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-black to-transparent z-10"></div>
+
+        {/* Scrollable row */}
+        <div
+          className="flex gap-3 sm:gap-4 px-4 sm:px-6 lg:px-8 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide"
+        >
+          {tv.map((item) => (
+            <div key={item.id} className="flex-shrink-0 snap-start">
+              <TvCard
+                posterPath={item.poster_path}
+                className="w-28 sm:w-36 md:w-44 lg:w-52 xl:w-56 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

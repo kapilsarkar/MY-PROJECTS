@@ -6,7 +6,7 @@ const VideoBackGroundTv = ({ tvId }) => {
 
   useTvTrailer(tvId);
 
-  console.log("Trailer Video:", trailerVideo);
+  //console.log("Trailer Video:", trailerVideo);
 
   if (!trailerVideo?.key) return null; // wait until video is ready
 

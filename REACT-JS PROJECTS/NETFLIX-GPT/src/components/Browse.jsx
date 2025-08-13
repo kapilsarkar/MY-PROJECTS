@@ -15,7 +15,7 @@ const Browse = () => {
       className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white"
     >
       <Header className="sticky top-0 bg-black/60 backdrop-blur-lg z-50" />
-      <main className="space-y-10">
+      <main className="space-y-48">
         <section className="animate-fadeIn">
           <MainContainer />
         </section>
