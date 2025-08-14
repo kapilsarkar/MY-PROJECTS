@@ -20,10 +20,12 @@ const GuestBrowse = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white flex flex-col">
       {/* Header */}
-      <header className="w-full px-4 sm:px-6 md:px-8 py-3 
+      <header
+        className="w-full px-4 sm:px-6 md:px-8 py-3 
                          bg-gradient-to-b from-black/90 to-transparent 
                          flex justify-between items-center 
-                         sticky top-0 z-10 shadow-md">
+                         sticky top-0 z-10 shadow-md"
+      >
         {/* Logo */}
         <img
           className="w-24 sm:w-32 md:w-40 object-contain"
@@ -32,11 +34,13 @@ const GuestBrowse = () => {
         />
 
         {/* User Info */}
-        <div className="flex items-center gap-2 sm:gap-4 
+        <div
+          className="flex items-center gap-2 sm:gap-4 
                         p-2 rounded-lg bg-black/40 backdrop-blur-sm 
-                        border border-white/10 shadow-sm">
+                        border border-white/10 shadow-sm"
+        >
           <img
-            className="w-10 h-10 rounded-full border-2 border-white shadow-md object-cover"
+            className="w-10 h-10  border-2 border-white shadow-md object-cover"
             src={netflixAvatar}
             alt="user-icon"
             title="User Avatar"
