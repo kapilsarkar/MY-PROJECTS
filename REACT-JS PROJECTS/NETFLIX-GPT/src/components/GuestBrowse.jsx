@@ -6,11 +6,13 @@ import GuestMainContainer from "./GuestMainContainer";
 import GuestSecondaryContainer from "./GuestSecondaryContainer";
 import useTopRatedTvShows from "../hooks/useTopRatedTvShows";
 import useOnTheAir from "../hooks/useOnTheAir";
+import useAiringToday from "../hooks/useAiringToday";
 
 const GuestBrowse = () => {
   usePopularTvShows();
   useTopRatedTvShows();
   useOnTheAir();
+  useAiringToday();
   const navigate = useNavigate();
 
   const handleLogin = () => {

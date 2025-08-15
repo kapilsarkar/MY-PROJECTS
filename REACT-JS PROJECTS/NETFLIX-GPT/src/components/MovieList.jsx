@@ -32,7 +32,7 @@ const MovieList = ({ title, movies }) => {
   return (
     <div className="relative bg-black py-4">
       {/* Title */}
-      <h2 className="px-4 sm:px-6 lg:px-8 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-3 text-white tracking-wide">
+      <h2 className="px-4 sm:px-6 lg:px-8 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-3 text-white tracking-wide capitalize animate-fadeIn">
         {title}
       </h2>
 
@@ -41,7 +41,7 @@ const MovieList = ({ title, movies }) => {
         onClick={() => scroll("left")}
         className="hidden md:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-12 lg:h-12 bg-black/60 hover:bg-black/80 rounded-full text-white transition"
       >
-        <ChevronLeft size={24} className="lg:size-28" />
+        <ChevronLeft size={24} />
       </button>
 
       {/* Right Button */}
@@ -49,27 +49,26 @@ const MovieList = ({ title, movies }) => {
         onClick={() => scroll("right")}
         className="hidden md:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-12 lg:h-12 bg-black/60 hover:bg-black/80 rounded-full text-white transition"
       >
-        <ChevronRight size={24} className="lg:size-28" />
+        <ChevronRight size={24} />
       </button>
 
       {/* Gradient Edges */}
-      <div className="hidden md:block pointer-events-none absolute left-0 top-0 bottom-0 w-8 lg:w-12 bg-gradient-to-r from-black to-transparent z-10"></div>
-      <div className="hidden md:block pointer-events-none absolute right-0 top-0 bottom-0 w-8 lg:w-12 bg-gradient-to-l from-black to-transparent z-10"></div>
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-6 sm:w-8 md:w-12 bg-gradient-to-r from-black to-transparent z-10"></div>
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-6 sm:w-8 md:w-12 bg-gradient-to-l from-black to-transparent z-10"></div>
 
       {/* Movie Scroll Container */}
       <div
         ref={scrollRef}
-        className="overflow-x-auto scrollbar-hide scroll-smooth px-4 sm:px-6 lg:px-8"
+        className="flex gap-3 sm:gap-4 px-4 sm:px-6 lg:px-8 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-thin sm:scrollbar-hide scroll-smooth touch-pan-x"
       >
-        <div className="flex gap-3 sm:gap-4">
-          {movies.map((movie) => (
+        {movies.map((movie) => (
+          <div key={movie.id} className="flex-shrink-0 snap-start">
             <MovieCard
-              key={movie.id}
               posterPath={movie.poster_path}
-              className="flex-shrink-0 w-28 sm:w-40 md:w-48 lg:w-56"
+              className="w-[clamp(7rem,15vw,14rem)] rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
             />
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

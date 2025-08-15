@@ -10,6 +10,7 @@ const GuestSecondaryContainer = () => {
         <TvList title="Popular TV Shows" tv={tv?.popularTvShows} />
         <TvList title="Top Rated Shows" tv={tv?.topRatedTvShows} />
         <TvList title="On The Air" tv={tv?.onTheAir} />
+        <TvList title="airingToday" tv={tv?.airingToday} />
       </div>
     </div>
   );
