@@ -12,6 +12,7 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router";
+import Trending from "./Trending";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -94,91 +95,94 @@ const Login = () => {
   };
 
   return (
-    <div className="relative h-screen w-full">
-      <Header />
+    <>
+      <div className="relative min-h-screen w-full">
+        <Header />
 
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src={bgImg}
-          alt="Netflix background"
-          className="w-full h-full object-cover"
-        />
-      </div>
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={bgImg}
+            alt="Netflix background"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-      {/* Form Container */}
-      <div className="absolute inset-0 flex justify-center items-center">
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className="w-11/12 sm:w-2/3 md:w-1/3 lg:w-1/4 p-8 sm:p-10 text-white bg-black bg-opacity-80 rounded-lg"
-        >
-          <h1 className="font-bold text-2xl sm:text-3xl mb-6">
-            {isSignInForm ? "Sign In" : "Sign Up"}
-          </h1>
-          {!isSignInForm && (
+        {/* Form Container */}
+        <div className="absolute inset-0 flex justify-center items-center">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="w-11/12 sm:w-2/3 md:w-1/3 lg:w-1/4 p-8 sm:p-10 text-white bg-black bg-opacity-80 rounded-lg"
+          >
+            <h1 className="font-bold text-2xl sm:text-3xl mb-6">
+              {isSignInForm ? "Sign In" : "Sign Up"}
+            </h1>
+            {!isSignInForm && (
+              <input
+                ref={name}
+                type="text"
+                placeholder="Full Name"
+                className="p-3 my-3 w-full bg-gray-700 rounded-sm"
+              />
+            )}
+            {!isSignInForm && (
+              <input
+                ref={mobile}
+                type="number"
+                placeholder="Mobile Number"
+                className="p-3 my-3 w-full bg-gray-700 rounded-sm"
+              />
+            )}
             <input
-              ref={name}
-              type="text"
-              placeholder="Full Name"
+              ref={email}
+              type="email"
+              placeholder="Email address"
               className="p-3 my-3 w-full bg-gray-700 rounded-sm"
             />
-          )}
-          {!isSignInForm && (
+
             <input
-              ref={mobile}
-              type="number"
-              placeholder="Mobile Number"
+              ref={password}
+              type="password"
+              placeholder="Password"
               className="p-3 my-3 w-full bg-gray-700 rounded-sm"
             />
-          )}
-          <input
-            ref={email}
-            type="email"
-            placeholder="Email address"
-            className="p-3 my-3 w-full bg-gray-700 rounded-sm"
-          />
-
-          <input
-            ref={password}
-            type="password"
-            placeholder="Password"
-            className="p-3 my-3 w-full bg-gray-700 rounded-sm"
-          />
-          {errorMessage && (
-            <p className="text-red-500 font-bold text-lg py-2">
-              {errorMessage}
-            </p>
-          )}
-          <button
-            className="p-3 my-4 bg-red-600 hover:bg-red-700 transition font-semibold w-full rounded-sm"
-            onClick={handleButtonClick}
-          >
-            {isSignInForm ? "Sign In" : "Sign Up"}
-          </button>
-          <button
-            className="p-3 my-4 bg-red-600 hover:bg-red-700 transition font-semibold w-full rounded-sm"
-            onClick={handleGuest}
-          >
-            Guest User
-          </button>
-
-          <p className="py-2 text-gray-300 text-sm sm:text-base">
-            {isSignInForm ? "New to Netflix?" : "Already have an account?"}
-            <span
-              className="text-white font-bold ml-1 cursor-pointer hover:underline"
-              onClick={toggleSignInForm}
+            {errorMessage && (
+              <p className="text-red-500 font-bold text-lg py-2">
+                {errorMessage}
+              </p>
+            )}
+            <button
+              className="p-3 my-4 bg-red-600 hover:bg-red-700 transition font-semibold w-full rounded-sm"
+              onClick={handleButtonClick}
             >
-              {isSignInForm ? "Sign up now." : "Sign in."}
-            </span>
-          </p>
+              {isSignInForm ? "Sign In" : "Sign Up"}
+            </button>
+            <button
+              className="p-3 my-4 bg-red-600 hover:bg-red-700 transition font-semibold w-full rounded-sm"
+              onClick={handleGuest}
+            >
+              Guest User
+            </button>
 
-          <p className="py-2 text-gray-400 text-xs">
-            This page is protected by Google reCAPTCHA to ensure you're not a
-            bot.
-          </p>
-        </form>
+            <p className="py-2 text-gray-300 text-sm sm:text-base">
+              {isSignInForm ? "New to Netflix?" : "Already have an account?"}
+              <span
+                className="text-white font-bold ml-1 cursor-pointer hover:underline"
+                onClick={toggleSignInForm}
+              >
+                {isSignInForm ? "Sign up now." : "Sign in."}
+              </span>
+            </p>
+
+            <p className="py-2 text-gray-400 text-xs">
+              This page is protected by Google reCAPTCHA to ensure you're not a
+              bot.
+            </p>
+          </form>
+        </div>
       </div>
-    </div>
+      <Trending />
+    </>
   );
 };
 
